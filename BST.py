@@ -1,10 +1,15 @@
+#Binary Search Tree
+#@punzo.am
+#initialize Base
+import sys
+
 class Node:
 	def __init__(self, data):
 		self.left = None
 		self.right = None
 		self.data = data
 	
-
+	#insert node into to tree based on value
 	def insert(self, data):
 		if self.data:
 			if data < self.data:
@@ -20,7 +25,7 @@ class Node:
 			else:
 				self.data = data
 
-
+	#function for looking up a specific value in the tree
 	def lookup(self, data, parent=None):
 		if data < self.data:
 			if self.left is None:
@@ -32,7 +37,7 @@ class Node:
 			return self.right.lookup(data, self)
 		else:
 			return self, parent
-
+	#function to delete a value from the tree
 	def delete(self, data):
 		node, parent = self.lookup(data)
 		if node is not None:
@@ -88,23 +93,20 @@ class Node:
 		print (self.data)
 		if self.right:
 			self.right.print_tree()
-			
+
+
+		
 root = Node(10)
-root.insert(5)
-root.insert(15)
-root.insert(10)
-root.insert(9)
-root.insert(7)
-root.insert(2)
-root.insert(1)
-root.insert(4)
-root.insert(3)
-root.insert(8)
-root.insert(27)
-root.insert(40)
+my_tree = [5, 15, 10, 9, 7, 2, 1, 4, 3, 8, 27, 40]
+for i in my_tree:
+	root.insert(i)
 root.print_tree()
 root.delete(5)
 root.print_tree()
+
+
+
+
 
 
 
